@@ -10,6 +10,8 @@ var usersRouter = require("./routes/users");
 var app = express();
 
 require("dotenv").config();
+const methodOverride = require("method-override");
+const session = require("express-session");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const course = require("./models/course");
@@ -17,6 +19,8 @@ const section = require("./models/section");
 const member = require("./models/member");
 const courseRouter = require("./routes/client-rendering/course");
 const authRouter = require("./routes/client-rendering/auth");
+const authRouterView = require("./routes/server-rendering/auth");
+const sectionRouterView = require("./routes/server-rendering/section");
 // const memberRouter = require("./routes/memberRouter");
 
 const uri = process.env.MONGO_URI;
@@ -35,11 +39,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(methodOverride("_method"));
+app.use(cors());
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/api/auth", authRouter);
-app.use("/view/auth", authRouter);
 app.use("/api/courses", courseRouter);
+app.use("/view/auth", authRouterView);
+app.use("/view/sections", sectionRouterView);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

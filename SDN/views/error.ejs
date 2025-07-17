@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container has-text-centered">
+            <h1 class="title has-text-danger">Oops! Something went wrong.</h1>
+            <p class="subtitle">We encountered an unexpected error.</p>
+
+            <% if (error && error.message) { %>
+                <div class="notification is-danger is-light has-text-left mt-5">
+                    <strong>Error Message:</strong>
+                    <p>
+                        <%= error.message %>
+                    </p>
+                </div>
+                <% } %>
+
+                    <% if (error && error.stack) { %>
+                        <div class="notification is-warning is-light has-text-left mt-3">
+                            <strong>Stack Trace:</strong>
+                            <pre><code><%= error.stack %></code></pre>
+                        </div>
+                        <% } %>
+
+                            <a href="/view/sections" class="button is-link mt-4">Back to Home</a>
+        </div>
+    </section>
+</body>
+
+</html>

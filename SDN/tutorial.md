@@ -103,7 +103,7 @@ const model = require("./models/model");
 
 =============================================
 
-### Nếu làm ejs
+### Ejs
 
 =============================================
 
@@ -112,6 +112,10 @@ const model = require("./models/model");
 -> Replace: app.set("view engine", "jade"); = app.set("view engine", "ejs");
 
 -> Add:
+const methodOverride = require("method-override");
+const session = require("express-session");
+
+*** add before routes ***
 app.use(methodOverride("_method"));
 app.use(cors());
 app.use(
@@ -123,4 +127,44 @@ app.use(
 );
 ```
 
----
+**_Add Bootstrap and icon <link> at header_**
+
+```html
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+```
+
+**_Add Bootstrap <script> at last_**
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+```
+
+<!-- TABLE -->
+
+**_html_**
+[Go to file](./views/section.ejs#L19)
+
+ <!-- CONFIRM DELETE MODAL -->
+
+**_html_**
+[Go to file](./views/section.ejs#L82)
+
+**_script_**
+[Go to file](./views/section.ejs#L167)
+
+ <!-- ADD/EDIT MODAL -->
+
+**_html_**
+[Go to file](./views/section.ejs#L108)
+**_script_**
+[Go to file](./views/section.ejs#L185)
