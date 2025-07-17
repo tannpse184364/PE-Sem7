@@ -1,6 +1,6 @@
 var express = require("express");
 const courseController = require("../../controllers/client-rendering/course");
-const authMiddleware = require("../../middlewares/auth");
+const { authMiddleware } = require("../../middlewares/auth");
 
 const courseRouter = express.Router();
 courseRouter.use(express.json());

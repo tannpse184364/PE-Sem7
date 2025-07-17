@@ -24,4 +24,11 @@ const authMiddleware = async (req, res, next) => {
   }
 };
 
-module.exports = authMiddleware;
+const authMiddlewareInView = async (req, res, next) => {
+  if (!req.session.user) {
+    req.session.message = "Please log in to continue.";
+    return res.redirect("/view/auth/login");
+  }
+  next();
+};
+module.exports = { authMiddleware, authMiddlewareInView };

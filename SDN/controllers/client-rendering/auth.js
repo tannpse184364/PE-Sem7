@@ -11,7 +11,7 @@ exports.register = async (req, res) => {
     if (findAccount) {
       throw new Error("userName already exists!");
     }
-    const newPassword = await bcrypt.hash(password, 3);
+    const newPassword = await bcrypt.hash(password, 10);
     const newAccount = await Member.create({
       userName,
       password: newPassword,

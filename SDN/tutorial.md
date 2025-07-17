@@ -112,6 +112,10 @@ const model = require("./models/model");
 -> Replace: app.set("view engine", "jade"); = app.set("view engine", "ejs");
 
 -> Add:
+const methodOverride = require("method-override");
+const session = require("express-session");
+
+*** add before routes ***
 app.use(methodOverride("_method"));
 app.use(cors());
 app.use(
@@ -124,3 +128,19 @@ app.use(
 ```
 
 ---
+
+**_Add BULMA at header_**
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+```
