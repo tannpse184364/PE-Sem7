@@ -10,8 +10,8 @@ npm install @react-native-async-storage/async-storage @react-navigation/bottom-t
 
 Nhớ đổi tên biến, theo format.
 
-```bash
-EXPO_PUBLIC_[NAME]=VALUE
+```js
+EXPO_PUBLIC_[NAME] = VALUE;
 ```
 
 [Go to file](./src/api/mockApi.js)
@@ -26,12 +26,12 @@ EXPO_PUBLIC_[NAME]=VALUE
 
 sử dụng navbar bằng component:
 
-```bash
- <Navbar
-        categories={teams}  # list categories/ brand
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-      />
+```js
+<Navbar
+  categories={teams} //list categories/ brand
+  selectedCategory={selectedCategory}
+  setSelectedCategory={setSelectedCategory}
+/>
 ```
 
 ## Bottom tabs
@@ -42,7 +42,7 @@ sử dụng navbar bằng component:
 
 [Go to file](./src/components/navigations/StackNavigation.js)
 
-```bash
+```js
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomTab from "./BottomTab";
 import DetailPage from "../../pages/DetailPage";
