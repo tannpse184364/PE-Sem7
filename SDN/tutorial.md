@@ -103,7 +103,7 @@ const model = require("./models/model");
 
 =============================================
 
-### Nếu làm ejs
+### Ejs
 
 =============================================
 
@@ -127,14 +127,12 @@ app.use(
 );
 ```
 
----
-
-**_Add BULMA at header_**
+**_Add Bootstrap and icon <link> at header_**
 
 ```html
 <link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
 />
 <link
   rel="stylesheet"
@@ -144,3 +142,29 @@ app.use(
   referrerpolicy="no-referrer"
 />
 ```
+
+**_Add Bootstrap <script> at last_**
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+```
+
+<!-- TABLE -->
+
+**_html_**
+[Go to file](./views/section.ejs#L19)
+
+ <!-- CONFIRM DELETE MODAL -->
+
+**_html_**
+[Go to file](./views/section.ejs#L82)
+
+**_script_**
+[Go to file](./views/section.ejs#L167)
+
+ <!-- ADD/EDIT MODAL -->
+
+**_html_**
+[Go to file](./views/section.ejs#L108)
+**_script_**
+[Go to file](./views/section.ejs#L185)
